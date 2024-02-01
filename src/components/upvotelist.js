@@ -1,5 +1,6 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
+//import { UpVoteContext } from "../UpVoteContext";
 import Button from "./button.js";
 import Upvote from "./upvote.js";
 
@@ -7,23 +8,35 @@ import Upvote from "./upvote.js";
 function UpVoteList(props) {
 
   const [upvoteListID] = useState(props.index);
-  const [upvoteList, updateUpvoteList] = useState([]);
+  const [upvoteList, updateUpvoteList] = useState(() => []); 
+  const [isSelected, setSelected] = useState(() => []);
 
   const handleAddUpvote = () => {
-    updateUpvoteList([...upvoteList, {state: 'default'}]);
+   
+    updateUpvoteList(prevUpvoteList => {
+      return [...prevUpvoteList, {state: 'default'}]
+      });
   };
-
  
   return (
     <div className="upvote-container" id={upvoteListID}>     
       <div className="upvote-list">       
-        {upvoteList.map((item, index) => (          
+        {upvoteList.map((item, index) => (         
             <Upvote 
             listid={upvoteListID} 
             index={index}  
             id={upvoteListID + "_" + index} 
             list={upvoteList} 
-            state={item.state} />                  
+            state={item.state} />     
+
+        //     <Button 
+        //     id={upvoteListID + "_" + index}
+        //     className={`button upvote-button upvote-${isSelected}` } 
+        //     state={item.state}
+        //     onClick={toggleUpvote}>
+        //   &#8593;
+        // </Button>
+
           ))}
 
       </div>
