@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import UpVoteList from './components/upvotelist.js';
+import { UpVoteContextProvider } from './UpVoteContext';
 
 function App() {
   return (
@@ -8,12 +9,14 @@ function App() {
       <header className="App-header">
        <h3>Upvote React Assessment</h3>
       </header>
-
-      <div className="main-container">        
-        <UpVoteList index={0}></UpVoteList>
-        <UpVoteList index={1}></UpVoteList>
-      </div>
-
+    
+      <div className="main-container"> 
+        <UpVoteContextProvider>
+          <UpVoteList index={0}/>
+          <UpVoteList index={1}/>          
+          <UpVoteList index={2}/>
+        </UpVoteContextProvider>
+      </div>     
     </div>
   );
 }
