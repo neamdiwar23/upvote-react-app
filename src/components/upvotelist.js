@@ -8,11 +8,9 @@ import Upvote from "./upvote.js";
 function UpVoteList(props) {
 
   const [upvoteListID] = useState(props.index);
-  const [upvoteList, updateUpvoteList] = useState(() => []); 
-  const [isSelected, setSelected] = useState(() => []);
+  const [upvoteList, updateUpvoteList] = useState(() => []);
 
-  const handleAddUpvote = () => {
-   
+  const handleAddUpvote = () => {   
     updateUpvoteList(prevUpvoteList => {
       return [...prevUpvoteList, {state: 'default'}]
       });
