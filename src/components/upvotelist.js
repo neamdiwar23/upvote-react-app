@@ -1,16 +1,16 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Button from "./button.js";
 import Upvote from "./upvote.js";
 
 
-function UpvoteList(props) {
+function UpVoteList(props) {
 
-  const [upvoteListID] = useState(props.name);
+  const [upvoteListID] = useState(props.index);
   const [upvoteList, updateUpvoteList] = useState([]);
 
   const handleAddUpvote = () => {
-    updateUpvoteList([...upvoteList, {class: 'default'}]);
-
+    updateUpvoteList([...upvoteList, {state: 'default'}]);
   };
 
  
@@ -18,17 +18,22 @@ function UpvoteList(props) {
     <div className="upvote-container" id={upvoteListID}>     
       <div className="upvote-list">       
         {upvoteList.map((item, index) => (          
-            <Upvote id={upvoteListID + "_" + index} />         
+            <Upvote 
+            listid={upvoteListID} 
+            index={index}  
+            id={upvoteListID + "_" + index} 
+            list={upvoteList} 
+            state={item.state} />                  
           ))}
 
       </div>
-      <button className="button upvote-addbtn" 
-        onClick={() => handleAddUpvote()}>
+      <Button className="button upvote-addbtn" 
+        onClick={handleAddUpvote}>
         &#43;
-      </button>
+      </Button>
           
     </div>
   );
 }
 
-export default UpvoteList;
+export default UpVoteList;

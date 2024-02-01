@@ -50,6 +50,10 @@
   background-color: #F4F6F8;
 }
 
+.upvote-addbtn{
+  height: 70px;
+}
+
 .upvote-button{
   padding: 10px 20px;
 }

@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import * as React from "react";
+import { useState } from "react";
+import Button from "./button.js";
 
 function Upvote(props) {
 
-  const [isSelected, setSelected] = useState("false");
+  const [isSelected, setSelected] = useState(props.state);
 
-  const toggleUpvote = () => {
-    setSelected(!isSelected); 
-   };
- 
+  const toggleUpvote = (e) => {
+    setSelected(isSelected === 'default' ? 'selected' : 'default'); 
+  }
+
   return (
-    <button className={isSelected ? "button upvote-button upvote-default" : "button upvote-button upvote-selected"} onClick={toggleUpvote}>
-      &#8593;
-    </button>
-
+    <Button 
+      id={props.id} 
+      className={`button upvote-button upvote-${isSelected}` } 
+      onClick={toggleUpvote}>
+    &#8593;
+  </Button>
   );
 }
 
