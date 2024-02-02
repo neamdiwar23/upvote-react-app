@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useState } from "react";
 import Button from "./button.js";
 
 function Upvote(props) {

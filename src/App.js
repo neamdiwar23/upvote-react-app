@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-       <h3>Upvote React Assessment</h3>
+       <h3>Upvote React App</h3>
       </header>
     
       <div className="main-container"> 
