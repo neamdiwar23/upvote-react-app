@@ -45,7 +45,7 @@ function UpVoteList(props) {
           ))}
 
       </div>
-      <Button className="button upvote-addbtn" 
+      <Button className="button upvote-addbtn"
         onClick={handleAddUpvote}>
         &#43;
       </Button>

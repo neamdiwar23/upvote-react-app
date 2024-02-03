@@ -4,7 +4,7 @@ import Button from "./button.js";
 function Upvote(props) {
   return (
     <Button 
-      id={props.id} 
+      id={props.id}      
       className={`button upvote-button upvote-${props.state}` } 
       onClick={() => {
         props.upVoteClick(props.index)

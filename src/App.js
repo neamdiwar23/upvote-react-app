@@ -15,6 +15,8 @@ function App() {
       }
       return value;
     })  
+
+    
     setList(result);
     if (updateList.length > 0) {
       window.localStorage.setItem('list', JSON.stringify({storedList: result}));

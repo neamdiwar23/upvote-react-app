@@ -1,8 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import App from './App.js'
 
-test('renders learn react link', () => {
+test("render landing page", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByRole("heading")).toHaveTextContent(/Upvote React App/i);
 });
